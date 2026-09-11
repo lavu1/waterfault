@@ -1,0 +1,31 @@
+{
+  "name": "WaterFault",
+  "slug": "03-waterfault",
+  "status": "prototype",
+  "kind": "application",
+  "event": {
+    "name": "Practice to Create [Feedback To All Projects!]",
+    "url": "https://practicetocreate.devpost.com/",
+    "rules": "https://practicetocreate.devpost.com/rules",
+    "track": "Open-ended problem solution / ideathon",
+    "deadline": "2026-09-25T18:45:00+02:00",
+    "checked_at": "2026-09-11"
+  },
+  "eligibility": "Conditional: the active event is for students aged 13+. Student status has not been confirmed.",
+  "estimated_effort": "2–4 hours for one interactive prototype and a draft presentation; recording/upload depends on user participation.",
+  "database": "sqlite",
+  "implementation": {
+    "entrypoint": "server.py",
+    "port": 5183,
+    "state": "SQLite-backed local prototype",
+    "tested_workflows": [
+      "duplicate linking",
+      "single active assignment",
+      "resolution history"
+    ]
+  },
+  "reference_review": {
+    "provided_kiro_submission_url": "https://devpost.com/submit-to/26848-kiro-hackathon/manage/submissions/910853-waterfault/project-overview",
+    "status": "Returns Devpost 404 as of 2026-09-11; the public Code with Kiro event closed in 2025 and is not the active target."
+  }
+}

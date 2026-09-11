@@ -1,0 +1,15 @@
+[
+  {
+    "name": "Reject second active assignment",
+    "sql": "INSERT INTO assignments (id,issue_id,crew_id) VALUES (2,1,2)"
+  },
+  {
+    "name": "Reject nonexistent linked issue",
+    "sql": "INSERT INTO reports (id,source_ref,issue_id,reporter_label,description,reported_landmark) VALUES (3,'BAD-ISSUE',999,'Demo','Demo','Demo')"
+  },
+  {
+    "name": "Reject duplicate report source reference",
+    "sql": "INSERT INTO reports (id,source_ref,reporter_label,description,reported_landmark) VALUES (3,'DEMO-REPORT-001','Demo','Demo','Demo')"
+  }
+]
+

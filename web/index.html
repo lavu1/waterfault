@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="A local prototype for turning duplicate water-fault reports into one accountable repair workflow.">
+    <meta name="theme-color" content="#07242b">
+    <title>WaterFault | Coordinator board</title>
+    <link rel="stylesheet" href="/styles.css">
+  </head>
+  <body>
+    <a class="skip-link" href="#workspace">Skip to coordinator workspace</a>
+    <header class="site-header">
+      <div class="brand-lockup" aria-label="WaterFault">
+        <span class="brand-mark" aria-hidden="true">WF</span>
+        <div>
+          <strong>WaterFault</strong>
+          <span>Community repair coordination</span>
+        </div>
+      </div>
+      <div class="header-status">
+        <span class="status-pill"><span class="status-dot"></span> Local SQLite</span>
+        <span class="prototype-pill">Prototype only</span>
+      </div>
+    </header>
+
+    <main id="workspace">
+      <section class="workspace-heading" aria-labelledby="page-title">
+        <div>
+          <p class="eyebrow">Demo North / Coordinator desk</p>
+          <h1 id="page-title">Turn repeated reports into one clear repair.</h1>
+        </div>
+        <button class="button button-ghost" id="reset-demo" type="button">Reset demo data</button>
+      </section>
+
+      <section class="metrics" aria-label="Current workload" id="metrics">
+        <div class="metric skeleton"></div>
+        <div class="metric skeleton"></div>
+        <div class="metric skeleton"></div>
+        <div class="metric skeleton"></div>
+      </section>
+
+      <section class="notice" aria-label="Prototype notice">
+        <span class="notice-label">Scope</span>
+        <p>Fictional local demonstration. No report is sent to a utility and no real crew is dispatched.</p>
+      </section>
+
+      <div class="workspace-grid">
+        <div class="primary-column">
+          <section class="panel intake-panel" aria-labelledby="intake-title">
+            <div class="panel-heading">
+              <div>
+                <p class="section-kicker">01 / Intake</p>
+                <h2 id="intake-title">Log a community report</h2>
+              </div>
+              <span class="microcopy">Original reports are always retained</span>
+            </div>
+            <form id="report-form" class="report-form">
+              <label>
+                Reporter label
+                <input name="reporter_label" required maxlength="80" value="Demo reporter D" autocomplete="off">
+              </label>
+              <label>
+                Landmark
+                <input name="reported_landmark" required maxlength="120" value="Demo Market side gate" autocomplete="off">
+              </label>
+              <label class="wide-field">
+                What was observed?
+                <textarea name="description" required maxlength="240" rows="2">Water is leaking beside the market gate.</textarea>
+              </label>
+              <button class="button button-primary" type="submit">Log report</button>
+            </form>
+          </section>
+
+          <section class="panel" aria-labelledby="inbox-title">
+            <div class="panel-heading">
+              <div>
+                <p class="section-kicker">02 / Review</p>
+                <h2 id="inbox-title">Duplicate review inbox</h2>
+              </div>
+              <span class="count-badge" id="inbox-count">...</span>
+            </div>
+            <div id="inbox" class="inbox-list" aria-live="polite">
+              <div class="loading-card">Loading incoming reports...</div>
+            </div>
+          </section>
+
+          <section class="panel issue-panel" aria-labelledby="issue-title">
+            <div class="panel-heading">
+              <div>
+                <p class="section-kicker">03 / Shared issue</p>
+                <h2 id="issue-title">Actionable repair record</h2>
+              </div>
+            </div>
+            <div id="issue-board" aria-live="polite">
+              <div class="loading-card">Loading issue record...</div>
+            </div>
+          </section>
+        </div>
+
+        <aside class="side-column" aria-label="Assignment and event history">
+          <section class="panel action-panel" aria-labelledby="assignment-title">
+            <p class="section-kicker">04 / Ownership</p>
+            <h2 id="assignment-title">Repair team</h2>
+            <div id="assignment-panel">
+              <div class="loading-card">Loading team status...</div>
+            </div>
+          </section>
+
+          <section class="panel timeline-panel" aria-labelledby="timeline-title">
+            <div class="panel-heading">
+              <div>
+                <p class="section-kicker">05 / Accountability</p>
+                <h2 id="timeline-title">Issue history</h2>
+              </div>
+            </div>
+            <ol id="timeline" class="timeline">
+              <li class="loading-card">Loading history...</li>
+            </ol>
+          </section>
+        </aside>
+      </div>
+    </main>
+
+    <div id="toast" class="toast" role="status" aria-live="polite" aria-atomic="true"></div>
+    <script src="/app.js" defer></script>
+  </body>
+</html>

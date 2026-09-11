@@ -1,0 +1,22 @@
+{
+  "synthetic": true,
+  "reference_date": "2026-09-11",
+  "execution_status": "automated_tests_implemented",
+  "scenarios": [
+    {
+      "id": "duplicate",
+      "description": "Three reports describe the same leak around a fictional market landmark.",
+      "expected": "All three original reports remain visible under one issue after coordinator review."
+    },
+    {
+      "id": "assignment",
+      "description": "Attempt to assign two crews at once.",
+      "expected": "One active assignment; second attempt rejected."
+    },
+    {
+      "id": "resolve",
+      "description": "Complete the repair and resolve the issue.",
+      "expected": "Completed assignment is retained, resolution persists after restart, and the event is visible."
+    }
+  ]
+}
