@@ -1,0 +1,44 @@
+{
+  "project": "WaterFault",
+  "subtitle": "Community repair coordination",
+  "accent": "#E9C954",
+  "voice": "Samantha",
+  "rate": 155,
+  "scenes": [
+    {
+      "title": "Every report matters. One repair needs one owner.",
+      "points": ["Keep the original reports", "Confirm duplicates with a person", "Track one repair through resolution"],
+      "narration": "WaterFault is a working prototype for a community coordinator who receives several reports about the same water service fault. The goal is simple: keep the evidence from every resident, connect reports that describe one issue, and make it clear which repair team owns the next action. This presentation uses fictional people, locations, and repair records. WaterFault is not connected to a utility, and none of the actions shown dispatches a real crew or claims a real repair."
+    },
+    {
+      "title": "A small coordinator desk with a clear workload",
+      "image": "01-overview.png",
+      "narration": "The starting dashboard shows one unresolved issue, two reports waiting for review, one active repair crew, and three original reports. These are database records, not decorative counters. A new report captures a reporter label, a landmark, and what was observed. This deliberately keeps intake small. The concept addresses a coordination problem: repeated reports can contain useful corroborating evidence, even when they refer to the same underlying fault. Removing duplicates entirely would lose that evidence and its history."
+    },
+    {
+      "title": "Suggestions support a decision; they do not make it",
+      "points": ["Landmark and description similarity", "A suggestion score, not a probability", "The coordinator confirms each link"],
+      "narration": "The review inbox suggests possible matches using a simple comparison of landmark words and fault descriptions. It is a transparent heuristic, not an artificial intelligence model, and its score is not a calibrated probability. The coordinator reads the original report and decides whether to confirm the link. This human decision matters: two leaks near one market might be separate problems. The prototype leaves uncertain reports in review instead of automatically merging them or inventing a repair assignment."
+    },
+    {
+      "title": "Confirmed linking preserves both original reports",
+      "image": "02-linked-report.png",
+      "narration": "Here is the result of confirming the second report as a duplicate of the market gate issue. Both original reports now appear inside the shared repair record. Their references, descriptions, reporters, and landmarks remain separate. The event history records that the coordinator linked the report after review. The number of reports waiting for review falls from two to one, while the total number of original reports remains three. Linking changes the relationship; it does not delete the resident's evidence."
+    },
+    {
+      "title": "One active team, followed by an explicit resolution",
+      "image": "03-resolved.png",
+      "narration": "The repair panel initially showed Demo Crew A as the active owner. The interface disabled a second assignment, and the database also enforces one active assignment per issue. After the coordinator marks the fictional repair resolved, the issue changes to resolved, the active crew count falls, and the completed assignment stays in the record. The history preserves creation, assignment, duplicate linking, and resolution. That makes it possible to explain what happened without confusing an assignment with a completed repair."
+    },
+    {
+      "title": "New intake survives a page reload",
+      "image": "04-persistent-intake.png",
+      "narration": "We then logged another fictional report and reloaded the page. The new report remained saved, bringing the original report count to four. Because the earlier issue was closed, the new report stayed unlinked for coordinator review. Persistence comes from a normalized SQLite database with separate reports, issues, repair crews, assignments, and event records. A lightweight Python server provides the application programming interface, while the browser presents the coordinator's workspace. The prototype runs locally without a paid external service."
+    },
+    {
+      "title": "Tested behavior, with clear next steps",
+      "points": ["5 automated tests passed locally and on GitHub", "Browser workflow: link, resolve, intake, reload", "Next: coordinator interviews and a supervised pilot"],
+      "narration": "Five automated workflow and interface tests passed locally and on GitHub. The browser walkthrough also confirmed linking, resolution, report intake, and persistence after reload. The next useful step is to interview coordinators and test whether this workflow matches their real responsibilities, then add authentication and a supervised utility integration if warranted. No time savings, water savings, or adoption figures have been measured. OpenAI Codex assisted with code and documentation, and this narration is synthetic speech. The public repository contains the runnable prototype, tests, architecture, and disclosures."
+    }
+  ]
+}

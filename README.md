@@ -5,7 +5,7 @@ WaterFault is a local, SQLite-backed prototype for a community coordinator handl
 Target: [Practice to Create [Feedback To All Projects!]](https://practicetocreate.devpost.com/) | [Official rules](https://practicetocreate.devpost.com/rules)  
 Track: Open-ended problem solution / ideathon  
 Deadline: **25 September 2026 at 18:45 Africa/Lusaka (UTC+2)**, checked 11 September 2026.  
-Eligibility: **Conditional.** The event is for students aged 13+; student status has not been confirmed.
+Eligibility: The event is for students aged 13+; the entrant’s saved Devpost eligibility matches those requirements.
 
 This is a fictional demonstration. It is not connected to a water utility and does not dispatch real crews.
 
@@ -54,5 +54,5 @@ The test suite covers duplicate suggestions and confirmed linking, rejection of 
 
 ## Submission status
 
-The application and draft presentation materials are prepared locally. No hosting, recording, public repository publication, or Devpost submission has been performed. The supplied historical Code with Kiro management URL currently returns a Devpost 404; public Kiro rules show that event closed on 15 September 2025, so it must not be treated as the active submission target.
+The runnable source is public at [GitHub](https://github.com/lavu1/waterfault), and the [3:43 narrated demonstration](https://youtu.be/L36PtPlXxKI) is public on YouTube. Devpost event submission is pending. The supplied historical Code with Kiro management URL currently returns a Devpost 404; public Kiro rules show that event closed on 15 September 2025, so it must not be treated as the active submission target.
 

@@ -1,0 +1,179 @@
+1
+00:00:00,000 --> 00:00:04,587
+WaterFault is a working prototype for a community coordinator who receives several reports
+
+2
+00:00:04,587 --> 00:00:09,174
+about the same water service fault. The goal is simple: keep the evidence
+
+3
+00:00:09,174 --> 00:00:13,761
+from every resident, connect reports that describe one issue, and make it clear
+
+4
+00:00:13,761 --> 00:00:18,348
+which repair team owns the next action. This presentation uses fictional people, locations,
+
+5
+00:00:18,348 --> 00:00:22,935
+and repair records. WaterFault is not connected to a utility, and none of
+
+6
+00:00:22,935 --> 00:00:27,170
+the actions shown dispatches a real crew or claims a real repair.
+
+7
+00:00:28,170 --> 00:00:33,427
+The starting dashboard shows one unresolved issue, two reports waiting for review, one
+
+8
+00:00:33,427 --> 00:00:38,684
+active repair crew, and three original reports. These are database records, not decorative
+
+9
+00:00:38,684 --> 00:00:43,941
+counters. A new report captures a reporter label, a landmark, and what was
+
+10
+00:00:43,941 --> 00:00:49,198
+observed. This deliberately keeps intake small. The concept addresses a coordination problem: repeated
+
+11
+00:00:49,198 --> 00:00:54,455
+reports can contain useful corroborating evidence, even when they refer to the same
+
+12
+00:00:54,455 --> 00:00:59,308
+underlying fault. Removing duplicates entirely would lose that evidence and its history.
+
+13
+00:01:00,308 --> 00:01:05,130
+The review inbox suggests possible matches using a simple comparison of landmark words
+
+14
+00:01:05,130 --> 00:01:09,952
+and fault descriptions. It is a transparent heuristic, not an artificial intelligence model,
+
+15
+00:01:09,952 --> 00:01:14,774
+and its score is not a calibrated probability. The coordinator reads the original
+
+16
+00:01:14,774 --> 00:01:19,596
+report and decides whether to confirm the link. This human decision matters: two
+
+17
+00:01:19,596 --> 00:01:24,418
+leaks near one market might be separate problems. The prototype leaves uncertain reports
+
+18
+00:01:24,418 --> 00:01:28,869
+in review instead of automatically merging them or inventing a repair assignment.
+
+19
+00:01:29,869 --> 00:01:34,560
+Here is the result of confirming the second report as a duplicate of
+
+20
+00:01:34,560 --> 00:01:39,252
+the market gate issue. Both original reports now appear inside the shared repair
+
+21
+00:01:39,252 --> 00:01:43,944
+record. Their references, descriptions, reporters, and landmarks remain separate. The event history records
+
+22
+00:01:43,944 --> 00:01:48,635
+that the coordinator linked the report after review. The number of reports waiting
+
+23
+00:01:48,635 --> 00:01:53,327
+for review falls from two to one, while the total number of original
+
+24
+00:01:53,327 --> 00:01:58,018
+reports remains three. Linking changes the relationship; it does not delete the resident's
+
+25
+00:01:58,018 --> 00:01:58,379
+evidence.
+
+26
+00:01:59,379 --> 00:02:04,333
+The repair panel initially showed Demo Crew A as the active owner. The
+
+27
+00:02:04,333 --> 00:02:09,287
+interface disabled a second assignment, and the database also enforces one active assignment
+
+28
+00:02:09,287 --> 00:02:14,241
+per issue. After the coordinator marks the fictional repair resolved, the issue changes
+
+29
+00:02:14,241 --> 00:02:19,195
+to resolved, the active crew count falls, and the completed assignment stays in
+
+30
+00:02:19,195 --> 00:02:24,149
+the record. The history preserves creation, assignment, duplicate linking, and resolution. That makes
+
+31
+00:02:24,149 --> 00:02:29,103
+it possible to explain what happened without confusing an assignment with a completed
+
+32
+00:02:29,103 --> 00:02:29,484
+repair.
+
+33
+00:02:30,484 --> 00:02:35,831
+We then logged another fictional report and reloaded the page. The new report
+
+34
+00:02:35,831 --> 00:02:41,178
+remained saved, bringing the original report count to four. Because the earlier issue
+
+35
+00:02:41,178 --> 00:02:46,524
+was closed, the new report stayed unlinked for coordinator review. Persistence comes from
+
+36
+00:02:46,524 --> 00:02:51,871
+a normalized SQLite database with separate reports, issues, repair crews, assignments, and event
+
+37
+00:02:51,871 --> 00:02:57,218
+records. A lightweight Python server provides the application programming interface, while the browser
+
+38
+00:02:57,218 --> 00:03:02,565
+presents the coordinator's workspace. The prototype runs locally without a paid external service.
+
+39
+00:03:03,565 --> 00:03:09,311
+Five automated workflow and interface tests passed locally and on GitHub. The browser
+
+40
+00:03:09,311 --> 00:03:15,057
+walkthrough also confirmed linking, resolution, report intake, and persistence after reload. The next
+
+41
+00:03:15,057 --> 00:03:20,803
+useful step is to interview coordinators and test whether this workflow matches their
+
+42
+00:03:20,803 --> 00:03:26,549
+real responsibilities, then add authentication and a supervised utility integration if warranted. No
+
+43
+00:03:26,549 --> 00:03:32,295
+time savings, water savings, or adoption figures have been measured. OpenAI Codex assisted
+
+44
+00:03:32,295 --> 00:03:38,041
+with code and documentation, and this narration is synthetic speech. The public repository
+
+45
+00:03:38,041 --> 00:03:41,577
+contains the runnable prototype, tests, architecture, and disclosures.
