@@ -1,5 +1,6 @@
 # WaterFault
 
+**[Watch the public demo](https://youtu.be/L36PtPlXxKI) · [Browse source](https://github.com/lavu1/waterfault)**
 WaterFault is a local, SQLite-backed prototype for a community coordinator handling repeated reports about the same water-service fault. It keeps every original report, makes duplicate linking a human decision, enforces one active repair crew per issue, and records the resolution history.
 
 Target: [Practice to Create [Feedback To All Projects!]](https://practicetocreate.devpost.com/) | [Official rules](https://practicetocreate.devpost.com/rules)  
